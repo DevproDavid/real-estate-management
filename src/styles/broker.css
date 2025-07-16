@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+    width: 1200px;
+    height: 702px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    
+}
+
+.left-container {
+  padding: 20px;
+  width: 1000px; 
+  height: 702px;
+  background-color: #E6F0F1;
+}
+.top-row {
+  display: flex;
+  align-items: center;           /* 🔹 Vertically center content */                             /* 🔹 Horizontally center content */
+  width: 85%;
+  height: 90px;
+  /* gap: 16px; */
+  margin: 0 auto;                /* 🔹 Center the whole .top-row itself */
+}
+
+.inner-box {
+  width: 50%;
+  height: 48px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+
+.inner-box2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 auto;
+  width: 30%;
+  height: 48px;
+}
+.inner-box2 label {
+  font-size: 14px;
+  font-weight: 600;                 
+  letter-spacing: 0.5px;         
+  margin-bottom: 3px;           
+  
+ 
+}
+
+#state-select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 🔸 This centers the cards horizontally */
+  gap: 2rem;               /* Space between cards */
+  margin: 30px auto; 
+  /* margin-top: -300px; */
+ 
+}
+
+
+
+
+/* right container */
+.right-container{
+width: 310px;
+height: 629px;
+background: #ffffff;
+border: 4px solid  #E6F0F1;
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 16px !important;   /* 👈 identical left & right space */
+    box-sizing: border-box !important;
+  }
+
+  .left-container {
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+     .top-row {
+    flex-direction: column;
+    align-items: stretch;  /* each child fills the line */
+    width: 100%;
+    height: auto;
+    gap: 0.75rem;          /* vertical spacing between inner‑box & inner‑box2 */
+    margin: 0;             /* outer centering now handled by container padding */
+  }
+
+  /* 2.  Make each inner section fill the row */
+  .inner-box,
+  .inner-box2 { width: 100%; height: auto; }
+
+  /* 3.  Font & spacing tweaks for readability */
+  .inner-box       { font-size: 16px; line-height: 1.4; }
+  .inner-box2 label{ font-size: 13px; }
+
+  /* 4.  Input control stays full width */
+  #state-select    { font-size: 15px; }
+
+  /* hide right sidebar */
+  .right-container {
+    display: none !important;
+  }
+
+  .card {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;   /* vertical gap only */
+    margin: 24px 0 !important; /* vertical breathing room */
+    padding: 0 !important;
+  }
+
+  .agent-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-box       { font-size: 15px; }
+  .inner-box2 label{ font-size: 12px; }
+  #state-select    { padding: 7px 9px; font-size: 14px; }
+}

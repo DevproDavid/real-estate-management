@@ -1,0 +1,100 @@
+/* // AgencyPropertySlider.jsx
+import React, { useEffect, useState, useRef } from 'react';
+
+// Dummy list of 9 agencies with logos and property types
+const agencies = [
+  { id: 1, name: 'Prime Estates', logo: 'https://via.placeholder.com/80x80?text=Prime', properties: [{ type: 'sale' }, { type: 'rent' }] },
+  { id: 2, name: 'Greenland Realty', logo: 'https://via.placeholder.com/80x80?text=Greenland', properties: [{ type: 'rent' }] },
+  { id: 3, name: 'City Homes', logo: 'https://via.placeholder.com/80x80?text=CityHomes', properties: [{ type: 'sale' }] },
+  { id: 4, name: 'Urban Nest', logo: 'https://via.placeholder.com/80x80?text=UrbanNest', properties: [{ type: 'rent' }] },
+  { id: 5, name: 'Oak Realtors', logo: 'https://via.placeholder.com/80x80?text=Oak', properties: [{ type: 'sale' }] },
+  { id: 6, name: 'Comfort Living', logo: 'https://via.placeholder.com/80x80?text=Comfort', properties: [{ type: 'rent' }] },
+  { id: 7, name: 'Smart Realty', logo: 'https://via.placeholder.com/80x80?text=Smart', properties: [{ type: 'sale' }] },
+  { id: 8, name: 'Metro Properties', logo: 'https://via.placeholder.com/80x80?text=Metro', properties: [{ type: 'rent' }] },
+  { id: 9, name: 'Cozy Homes', logo: 'https://via.placeholder.com/80x80?text=Cozy', properties: [{ type: 'rent' }] },
+];
+
+export default function AgencyPropertySlider() {
+  const [index, setIndex] = useState(0); // Track how many logos have shifted
+  const [isHovered, setIsHovered] = useState(false);
+  const trackRef = useRef(null);
+
+  // Auto-slide every 3 seconds unless hovered
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setIndex(prev => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  // Duplicate logos to simulate infinite loop effect
+  const allLogos = [...agencies, ...agencies]; // Double the logos
+  const total = agencies.length;
+
+  // Calculate center agency for details
+  const centerRealIndex = (index + 1) % total;
+  const centerAgency = agencies[centerRealIndex];
+  const saleCount = centerAgency.properties.filter(p => p.type === 'sale').length;
+  const rentCount = centerAgency.properties.filter(p => p.type === 'rent').length;
+  const formatText = (count, label) => `${count} ${label}${count === 1 ? '' : 's'}`;
+
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ maxWidth: '960px', margin: '40px auto', textAlign: 'center' }}
+    >
+      <h2 style={{ marginBottom: '20px' }}>Featured Agencies</h2>
+
+      {/* Carousel container */}
+      <div style={{ overflow: 'hidden', width: '360px', margin: '0 auto' }}>
+        <div
+          ref={trackRef}
+          style={{
+            display: 'flex',
+            transition: 'transform 0.6s ease-in-out',
+            transform: `translateX(-${index * 120}px)`, // 100px width + 20px gap per logo
+            gap: '20px',
+          }}
+        >
+          {allLogos.map((agency, i) => (
+            <div
+              key={i + '-' + agency.id}
+              style={{
+                width: '100px',
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <img
+                src={agency.logo}
+                alt={agency.name}
+                style={{ width: '80px', height: '80px', borderRadius: '8px' }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Center agency details */}
+      <div
+        style={{
+          marginTop: '20px',
+          backgroundColor: '#f4f4f4',
+          padding: '16px',
+          borderRadius: '6px',
+          width: '200px',
+          marginInline: 'auto',
+        }}
+      >
+        <h4 style={{ margin: 0 }}>{centerAgency.name}</h4>
+        <small>{formatText(saleCount, 'property for sale')}</small><br />
+        <small>{formatText(rentCount, 'property for rent')}</small>
+      </div>
+    </div>
+  );
+}
+  */

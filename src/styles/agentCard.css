@@ -1,0 +1,79 @@
+
+
+
+ .agent-card {
+  width: 350px;
+  height: 160px; /* Fixed height to prevent oversized cards */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Top section with image and text */
+.agent-top {
+  display: flex;
+  padding: 8px;
+}
+
+.agent-image img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* container */
+.agent-info {
+  margin-left: 12px;
+  margin-top: 8px;
+}
+/* inside the container */
+.agent-name {
+  font-size: 16px;
+  font-weight: bold; 
+}
+
+.agent-area {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Sales area */
+.agent-sales {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: -10px;
+  padding: 14px;
+  
+}
+
+/* Agency logo at the bottom */
+.agency-logo {
+  text-align: center;
+  
+}
+
+.agency-logo img {
+  height: 36px;
+}
+
+
+/* ─────────────────────────────────────────────
+   MOBILE‑ONLY EQUAL SIDE MARGINS
+   place AFTER desktop styles – kicks in ≤ 768 px
+   ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .agent-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+  }
+}
