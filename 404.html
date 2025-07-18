@@ -2,13 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script>
-      // Redirect to actual route so React Router can handle it
-      var pathname = window.location.pathname;
-      var redirectPath = '/real-estate-management' + pathname.replace('/real-estate-management', '');
-      window.location.replace(redirectPath);
-    </script>
     <title>Redirecting...</title>
+    <script>
+      var currentPath = location.pathname + location.search + location.hash;
+      var repoName = "/real-estate-management";
+
+      if (currentPath.startsWith(repoName)) {
+        currentPath = currentPath.replace(repoName, '');
+      }
+
+      // Redirect to the app with the original path in hash
+      window.location.replace(repoName + "/index.html#"+ currentPath);
+    </script>
   </head>
   <body>
     <p>Redirecting...</p>
